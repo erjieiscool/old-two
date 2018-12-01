@@ -13,7 +13,7 @@ Vue.use(Router)
 //配置访问自定义组件路经
 export default new Router({
   routes: [
-    {path:'/',component:HelloContainer},
+    {path:'/',redirect:"/home"},
     {path:"/test",component:testContainer},
     {path:"/home",component:HomeContainer},
     {path:"/login",component:loginContainer},

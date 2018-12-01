@@ -155,7 +155,7 @@
         <div class="products">
             <ul class="product-list">
                 <li class="product-item" v-for="item in laptop.slice(0,6)" :key="item.pid">
-                    <a href="#">
+                    <router-link to="/details">
                         <div class="item-pic">
                             <span class="hottags">7.8折</span>
                             <img :src="item.img">
@@ -163,7 +163,7 @@
                         <p class="say">{{item.style}}</p>
                         <p class="item-price"><span>优惠价:￥<span>{{item.price}}</span></span><span>￥{{item.oldprice}}</span></p>
                         <p class="item-total" style="color:#555555;"><span>{{item.count}}人付款</span><span>优惠{{(item.oldprice-item.price).toFixed(2)}}元</span></p>
-                    </a>
+                    </router-link>
                 </li>
             </ul>
         </div>

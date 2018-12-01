@@ -11,17 +11,21 @@ import './lib/mui/css/icons-extra.css'
 // 还需要加载图标字体文件
 import './lib/mui/css/icons-extra.css'
 //引入组件
-//import {Header,Swipe,SwipeItem} from "mint-ui";
+import {Header,Swipe,SwipeItem} from "mint-ui";
 
 //注册
-//Vue.component(Header.name,Header);
-//Vue.component(Swipe.name,Swipe);
-//Vue.component(SwipeItem.name,SwipeItem);
+Vue.component(Header.name,Header);
+Vue.component(Swipe.name,Swipe);
+Vue.component(SwipeItem.name,SwipeItem);
 import MintUI from "mint-ui";
 
 //引入vue-resource,ajax请求
 import VueResource from "vue-resource";
 Vue.use(VueResource);
+Vue.http.options.root="http://127.0.0.1:2000/";
+
+Vue.http.options.emulateJSON=true
+
 //3.创建过滤器
 // Vue.filter("Filter",function(val){
 //   retyrn"";

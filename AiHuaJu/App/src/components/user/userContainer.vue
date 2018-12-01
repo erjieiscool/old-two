@@ -3,7 +3,7 @@
         <div class="list">
             <div id="user">
                 <div><img src="http://127.0.0.1:2000/img/user.gif"></div>
-                <p>用户</p>
+                <p class="userName">欢迎你：{{name}}</p>
             </div>
             <ul>
                 <li>
@@ -32,16 +32,45 @@
                 <li><a href="#">400电话<span>&gt;</span></a></li>
                 <li><a href="#">投诉建议<span>&gt;</span></a></li>
                 <li><a href="#">关于我们<span>&gt;</span></a></li>
+                <li  @click="signout"><a href="#">退出<span>&gt;</span></a></li>
             </ul>
         </div>
     </div>
 </template>
 <script>
   export default{
-
+      data(){return{
+          name:""
+      }},
+      methods:{
+          isLogin(){
+              var user_id=sessionStorage.getItem("user_id");
+              var uname=sessionStorage.getItem("uname");
+              if(!user_id){
+                  this.$router.push("/login");
+              }else{
+                  this.name=uname;
+              }
+          },
+          signout(){
+              var user_id=sessionStorage.getItem("user_id");
+              var url="signout?user_id="+user_id;
+              this.$http.get(url).then(result=>{
+                  sessionStorage.setItem("user_id","");
+                  sessionStorage.setItem("user_name","");
+                  this.$router.push("/home");
+              })
+          }
+      },
+      created() {
+          this.isLogin();
+      },
   }
 </script>
 <style>
+    .app-user{
+        margin-bottom:100px;
+    }
     .app-user>div{
         background:#fff;
         margin-top:15px;
@@ -86,5 +115,13 @@
     #user>div>img{
         width:80px;
         height:80px;
+        border-radius:50%;
+    }
+    .userName{
+        color:#fff;
+        font-size:16px;
+        font-weight:bold;
+        margin-left:120px;
+        margin-top:10px;
     }
 </style>

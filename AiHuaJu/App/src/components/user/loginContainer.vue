@@ -30,16 +30,16 @@
         methods:{
             userLogin(){
                 var uname=this.unameval;
-                var upwd=this.upwdval;
-                console.log(uname,upwd);
-                
-                this.$http.get("login>uname="+uname+"&upwd="+upwd).then(result=>{
-                    if(result.body.code==1){
-                        Toast(result.body.msg);
-                        this.$router.push("/");
-                    }else{
-                        Toast(result.body.msg)
-                    }
+                var upwd=this.upwdval;          
+                this.$http.post("http://127.0.0.1:2000/login",{uname:uname,upwd:upwd},{emulateJSON:true}).then(result=>{ 
+                        if(result.body.ok==1){
+                            sessionStorage.setItem("user_id",result.body.user_id);
+                            sessionStorage.setItem("uname",result.body.uname);
+                            Toast(result.body.msg);
+                            this.$router.push("/home/user");
+                        }else{
+                            Toast(result.body.msg)
+                        }
                 })
             }
         }
