@@ -9,7 +9,6 @@ import registerContainer from "./components/user/registerContainer.vue"
 import cartContainer from "./components/user/cartContainer.vue"
 import detailsContainer from "./components/list/detailsContainer.vue"
 import userContainer from "./components/user/userContainer"
-import listContainer from "./components/list/listContainer"
 Vue.use(Router)
 //配置访问自定义组件路经
 export default new Router({
@@ -21,7 +20,6 @@ export default new Router({
     {path:"/register",component:registerContainer},
     {path:"/cart",component:cartContainer},
     {path:"/details",component:detailsContainer},
-    {path:"/home/user",component:userContainer},
-    {path:"/list",component:listContainer}
+    {path:"/home/user",component:userContainer}
   ]
 })

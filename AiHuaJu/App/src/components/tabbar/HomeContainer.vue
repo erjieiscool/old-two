@@ -24,10 +24,10 @@
         <!--九宫格-->
         <ul class="mui-table-view mui-grid-view mui-grid-9 bgk">
 		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-                <router-link to="/list">
+                <a href="#">
 		            <img src="../../img/tb1.png">
 		            <div class="mui-media-body">蜜恋之花</div>
-                </router-link>
+                </a>
             </li>
 		    <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                 <a href="#">
@@ -427,13 +427,8 @@
         padding:0;
         margin:0;
     }
-    .mint-swipe{
-        height:200px;
-        margin-top:40px;
-    }
     #app-home .mint-swipe img{
         width:100%;
-        height:100%;
     }  
     #app-home>.mint-swipe{
         height:144px;

@@ -1,6 +1,6 @@
 <template>
     <div class="app-cart">
-        <p class="card">购物车({{product.length}})</p>
+        <p class="card">购物车(1)</p>
         <div class="cart">
             <ul class="cartInfo" v-for="(item,i) in product" :key="item.tid">
                 <li class="item-pic">
@@ -66,15 +66,13 @@
                 var tid=this.product[i].tid;
                 console.log(tid);
                 this.$http.get("deleteCart?tid="+tid).then(result=>{
-                    console.log(123)
-                   console.log("删除");
-                   this.cartItem();
+                    alert("确定删除商品")
                 })
             }
         },
-        mounted() {
+        created(){
             this.cartItem();
-        },
+        }
     }
 </script>
 <style >

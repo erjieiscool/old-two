@@ -215,7 +215,7 @@
         }
     }
 </script>
-<style scoped>
+<style>
     #app-detail .mint-swipe{
         height:310px;
     }
